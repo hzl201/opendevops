@@ -2,94 +2,42 @@
 
 > 主要介绍下前后端都是如何进行版本更新的
 
-## 前端更新
-> 由于前端都是静态文件，更新起来非常简单，直接下载最新的[release](https://github.com/opendevops-cn/codo/releases)包解压即可
+- 代码自动部署计划
+-  1.任务要求：
+-  (1）每天夜里2点自动获取svn源码服务器的最新代码并编译、打包。
+-  2.准备工作：
+-  (1）准备所有待更新的服务器的ip地址和登录密码清单。
+-  (2）部署jenkins的服务器要求能访问外网，并且其他web服务器能通过http下载此服务器的文件。
+-  (3）svn源码库的地址和svn帐号(建议只分配只读权限）。
+-  (4）下载jenkins部署时需要的安装包。
+-  (5）开发人员正在使用的源码一套。
+-  (6）做好web服务器的备份工作。
+-  3.具体实施步骤：
+-  (1）先测试网络。A服务器分发下载包，其他服务器使用脚本自动下载并解压缩。测试网络速度和稳定性。
+-  (2）部署jenkins的服务器最好设置到集团，若集团服务器无法满足需求，只能部署到某一矿端服务器。若安装jenkins后无法自动编译，则需要安装vs2012开发环境。设置为每天2点0分0秒自动下载源码并编译打包。构建一次并推送(一定要保证第一次更新前矿端都已经手动更新到最新），若成功，则只会把刚提交的文件打包。然后把开机启动jenkins的命令设置一下。
+-  4.测试：
+-  (1）jenkins执行构建后是否能正确打包？构建需要5分钟，期间请勿进行任何操作。构建服务器需删除360安全卫士，否则无法执行bat命令。
+-  (2）打包文件是否可以用解压缩软件正确解压？需安装7z压缩软件。
+-  (3）打包文件是否能按日期正常筛选最新文件？(若不能，则执行构建时不要中途暂停，重新下载svn源码后，按日期搜索的命令会失效，导致打包文件体积暴增，需要等一个月，解决方法是把开发人员本地备份的源码替换上去）。
+-  (4）矿井服务器是否能正常下载更新包？检查目录是否正确创建好，7z压缩软件和wget.exe下载程序是否已经安装。
+-  (5）矿井服务器手动修改版本号后是否能自动重新下载更新包？
+-  (6）更新后是否能正常显示出新功能？
+-  5.回滚：
+-  (1）回滚原理是通过手动输入svn版本来确定打包成哪个版本，再强制修改已经部署好的文件。一般情况下不要使用。
 
-```
-rm -rf /var/www/codo/
-CODO_VER="codo-beta-0.3.2"   #这里改为最新的relase版本
-if ! which wget &>/dev/null; then yum install -y wget >/dev/null 2>&1;fi
-[ ! -d /var/www ] && mkdir -p /var/www
-cd /var/www && wget https://github.com/opendevops-cn/codo/releases/download/${CODO_VER}/${CODO_VER}.tar.gz
-tar zxf ${CODO_VER}.tar.gz
-```
+## 前端手动更新
+> 由于前端是静态文件+配置文件+上传资料，更新起来需要单独更新某几个目录，在svn同步最新代码，然后编译后覆盖对应文件即可。
+
+- 手动更新原理：[传送门](../../../Resources/tools/web平台代码更新/手动更新/代码手动更新方法.docx)
+
+## 前端自动更新
+> 自动更新的实现方式是将手动操作全部用命令的方式自动执行，并可以在编译时检查代码语句错误，打包时集成js版本控制。
+> 目前已实现自动编译并定时分发给生产环境服务器和测试服务器。
+
+- 自动更新原理及步骤：[传送门](https://www.zybuluo.com/hzl201/note/1473689)
+- 自动更新视频操作演示：[传送门](https://www.bilibili.com/video/av68629638)
+
 
 ## 后端更新
 
-> 后端都是微服务的，更新某个模块只需要对单个模块操作即可
-
-
-- 举个例子，没有修改表结构的更新
-```shell
-# 进到你的模块目录
-cd /opt/codo/codo-cmdb  
-
-#先给你自己的settings备份下，省的频繁修改
-mv settings.py settings.py-bak    
-
-#获取最新代码
-git pull  
-
-#覆盖回来
-mv settings.py-bak settings.py    
-
- #重新打包镜像
-docker build . -t codo_cmdb    
-
-#compose启动
-docker-compose up -d            
-
-#查看日志是否有错误
-tailf /var/log/supervisor/cmdb.log  
-
-```
-
-- 假如后端修改了表结构我怎么更新呢？
-
-> 如果后端修改了表结构，我们的更新文档都会说明哪些需要`ALTER TABLE`,比如CMDB资产配置新增了华为云的支持，
-
-- 问题1：我不想重新初始化，里面有数据，想直接改表结构  
-
-```mysql  
-
-#先进到你的数据库，每个模块都是对应一个版本库的
-
-ALTER TABLE `asset_configs` ADD `project_id` VARCHAR(120) NOT NULL ;
-ALTER TABLE `asset_configs` ADD `huawei_cloud` VARCHAR(120) NOT NULL ;
-ALTER TABLE `asset_configs` ADD `huawei_instance_id` VARCHAR(120) NOT NULL ;  
-
-```
-- 然后更新你的代码
-
-```shell
-# 进到你的模块目录
-cd /opt/codo/codo-cmdb  
-
-#先给你自己的settings备份下，省的频繁修改
-mv settings.py settings.py-bak    
-
-#获取最新代码
-git pull  
-
-#覆盖回来
-mv settings.py-bak settings.py    
-
- #重新打包镜像
-docker build . -t codo_cmdb    
-
-#compose启动
-docker-compose up -d            
-
-#查看日志是否有错误
-tailf /var/log/supervisor/cmdb.log  
-```
-
-- 问题2：我不想改表结构怎么办？  
-
-> 如果你是新部署的用户/没数据的用户，你完全可以给这个库/表删除了执行初始化操作  
-
-```
-docker exec -ti cmdb_codo_cmdb_1 /usr/local/bin/python3 /var/www/codo-cmdb/db_sync.py
-
-#最后同样，如上，更新最新代码即可
-```
+> 后端主要是帆软报表的修改和数据库的修改。

@@ -12,8 +12,10 @@ module.exports = {
       {
         text: '部署文档',
         items: [
-          { text: '单机部署', link: '/zh/guide/install/local/' },
-          { text: '分布式部署', link: '/zh/guide/install/distribute/' }
+          { text: '快速部署', link: '/zh/guide/install/local/' },
+          { text: '分布式部署', link: '/zh/guide/install/distribute/' },
+          { text: '服务配置', link: '/zh/guide/install/config/' },
+          { text: '服务迁移', link: '/zh/guide/install/transmission/' }
         ]
       },
       { text: '使用文档', link: '/zh/guide/used/' },
@@ -47,7 +49,9 @@ module.exports = {
           collapsable: false,
           children: [
             '/zh/guide/install/local/',
-            '/zh/guide/install/distribute/'
+            '/zh/guide/install/distribute/',
+            '/zh/guide/install/config/',
+            '/zh/guide/install/transmission/'
           ]
         },
         {

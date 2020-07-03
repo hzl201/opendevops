@@ -5,7 +5,7 @@ actionText: 快速上手 →
 actionLink: /zh/guide/
 features:
 - title: 介绍
-  details: LrSpsp是一款为用户提供企业级一体化管控的安全生产共享平台，依托空间信息技术打造透明化矿山
+  details: LrSpspWeb是一款为用户提供企业级一体化管控的安全生产共享平台，依托空间信息技术打造透明化矿山
 - title: 环境
   details: 使用.Net技术进行开发
 - title: 权限
