@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'OpenDevOps',
-  description: ' Vue驱动的CoDo快速入门文档',
+  title: 'LrSpspWeb',
+  description: ' Vue驱动的LrSpspWeb快速入门文档',
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }]
   ],
@@ -17,16 +17,16 @@ module.exports = {
         ]
       },
       { text: '使用文档', link: '/zh/guide/used/' },
-      { text: '论坛', link: 'https://bbs.opendevops.cn/',target:'_blank' },
-      { text: '官网', link: 'https://www.opendevops.cn/',target:'_blank' },
-      { text: 'Demo', link: 'https://demo.opendevops.cn/login', target: '_blank'},
-      { text: 'Gitee', link: 'https://gitee.com/opendevops/opendevops', target: '_blank'},
-      // { text: 'Github', link: 'https://github.com/opendevops-cn',target:'_blank' },
+      //{ text: '论坛', link: 'https://bbs.opendevops.cn/',target:'_blank' },
+      { text: '官网', link: 'http://www.longruan.com/',target:'_blank' },
+      { text: 'Demo', link: 'http://172.16.0.165/', target: '_blank'},
+      //{ text: 'Gitee', link: 'https://gitee.com/opendevops/opendevops', target: '_blank'},
+      { text: 'Github', link: 'https://github.com/hzl201/opendevops',target:'_blank' },
       {
         text: '了解更多',
         items: [
           { text: 'FAQ', link: '/zh/guide/more/faq/' },
-          { text: 'QQ群', link: '/zh/guide/more/qgroup/'},
+          { text: 'QQ群及微信群', link: '/zh/guide/more/qgroup/'},
           { text: '贡献者', link: '/zh/guide/more/contributor/'},
           { text: '权限文档', link: '/zh/guide/more/permission/'},
           { text: '最佳示例', link: '/zh/guide/more/example/'},
