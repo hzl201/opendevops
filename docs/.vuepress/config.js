@@ -18,7 +18,7 @@ module.exports = {
           { text: '服务迁移', link: '/zh/guide/install/transmission/' }
         ]
       },
-      { text: '使用文档', link: '/zh/guide/used/' },
+      { text: '使用文档', link: '/zh/guide/used/GIS_docs/' },
       //{ text: '论坛', link: 'https://bbs.opendevops.cn/',target:'_blank' },
       { text: '官网', link: 'http://www.longruan.com/',target:'_blank' },
       { text: 'Demo', link: 'http://172.16.0.165/', target: '_blank'},
@@ -55,10 +55,31 @@ module.exports = {
           ]
         },
         {
-          title: '如何使用',
+          title: 'GIS使用',
           collapsable: false,
           children: [
-            '/zh/guide/used/',
+            '/zh/guide/used/GIS_docs/'
+          ]
+        },
+        {
+          title: '集团平台使用',
+          collapsable: false,
+          children: [
+            '/zh/guide/used/jtWeb_docs/jtWeb_menu/'
+          ]
+        },
+        {
+          title: '矿端平台使用',
+          collapsable: false,
+          children: [
+            '/zh/guide/used/kjWeb_docs/kjWeb_menu/'
+          ]
+        },
+        {
+          title: '监测数据检查',
+          collapsable: false,
+          children: [
+            '/zh/guide/used/MonitorData/'
           ]
         },
         {

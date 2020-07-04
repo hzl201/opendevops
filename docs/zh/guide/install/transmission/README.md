@@ -35,11 +35,11 @@
 **恢复一张图服务**
 
 - 一张图服务至少包括协同服务、地图服务、文档浏览服务，有可能还有定制的一些等值线、应力微震服务，这里重点讲解协同服务、地图服务、文档浏览服务的切换注意事项。协同服务和地图服务可单独发布，可放在一个新的服务器上，也可合并放在web服务器上。注意：sql数据库的sa密码不能有“@”符号。文档浏览服务只能放在web服务器上，因为需要使用到web目录下的任意一个龙软格式的图纸，web服务器除了需要IIS初始环境，也需要注册gis软件。
-- ![](https://i.loli.net/2020/07/03/bHQwDqdRAg6vN8K.jpg)
+- ![](/bHQwDqdRAg6vN8K.jpg)
 - 协同服务配置图
-- ![](https://i.loli.net/2020/07/03/KyOdJnrco2tFxaH.jpg)
+- ![](/KyOdJnrco2tFxaH.jpg)
 - 地图服务配置图
-- ![](https://i.loli.net/2020/07/03/9JKL2Bgsfvzkar3.jpg)
+- ![](/9JKL2Bgsfvzkar3.jpg)
 - 文档浏览服务配置图
 - 其他如等值线或应力微震服务需要开发人员调整。
 - 测试各类服务是否正常运行。
@@ -55,7 +55,7 @@
 **恢复web服务**
 
 - web服务若是注册文件失效，则需重新申请注册码。一般是由开发人员来申请和注册，注册一次以后，只要不删除注册文件App_Data\config\reg.Data，就可以持续使用，web的注册是有时间限制的，最长4年，到期前没有提示，需注意提前申请新的注册码并重新注册一遍，访问web站点后若注册失效，需将机器码发给开发人员重新注册。一般注册失效的情况是注册文件被删除、注册时间到期、检测到该目录被拷贝到其他路径或文件被大规模替换（玄学，随机触发）。
-- ![](https://i.loli.net/2020/07/03/APs8lIfNTa9VYJ2.jpg)
+- ![](/APs8lIfNTa9VYJ2.jpg)
 - Web目录的路径变化以后还需要调整webconfig和baseconfig文件。
 - 最后进行数据备份的设置。
 
@@ -69,20 +69,20 @@
 - 先恢复数据库。根据节点库的大小，有时候恢复时间很长，最大的两个监测节点库是安全监测和人员定位数据库，需耐心等待。
 - 恢复ftp服务。将ftp软件的帐号密码使用通用的ftpuser及LONGruan123进行配置。若有服务器ip变更，则通知使用单位的各类厂家需上传到新的服务器ip中的ftp对应目录。
 - 恢复龙软接口程序及守护进程。建议龙软接口程序中的本机ip上传配置不要使用固定ip，可使用“.”代替，点号代表本机。这样监测监控接口程序迁移后基本不需要进行配置变动。
-- ![](https://i.loli.net/2020/07/03/C4MONzQSrucRPsK.jpg)
+- ![](/C4MONzQSrucRPsK.jpg)
 - 常用的接口程序有安全监测、人员定位、水文等。
 - 监测监控对ip地址等配置的要求更高，若有服务器ip有变动，则需要修改中心库的ip配置。
-- ![](https://i.loli.net/2020/07/03/fog3zAKsWFkGmhj.jpg)
+- ![](/fog3zAKsWFkGmhj.jpg)
 - 人员定位中心库ip修改。
-- ![](https://i.loli.net/2020/07/03/fjc58vA9G3aqxUI.jpg)
+- ![](/fjc58vA9G3aqxUI.jpg)
 - 监测中心库三维ip修改。
-- ![](https://i.loli.net/2020/07/03/JRFaqK4NzI1hHlm.jpg)
-- ![](https://i.loli.net/2020/07/03/zUIQenZ3Oih6YPF.jpg)
+- ![](/JRFaqK4NzI1hHlm.jpg)
+- ![](/zUIQenZ3Oih6YPF.jpg)
 - 安全监测中心库ip修改。
-- ![](https://i.loli.net/2020/07/03/yd2imQfatUMGRDl.jpg)
-- ![](https://i.loli.net/2020/07/03/8e3lqnRCXxAHSPZ.jpg)
+- ![](/yd2imQfatUMGRDl.jpg)
+- ![](/8e3lqnRCXxAHSPZ.jpg)
 - 水文监测中心库ip修改。
-- ![](https://i.loli.net/2020/07/03/s9n4mUkaDNXoi1r.jpg)
+- ![](/s9n4mUkaDNXoi1r.jpg)
 - 应力和微震ip修改。
 - 最后进行数据备份的设置。
 
