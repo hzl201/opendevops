@@ -1054,6 +1054,13 @@
   dependencies:
     lodash.debounce "^4.0.8"
 
+"@vuepress/plugin-back-to-top@^1.5.2":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-back-to-top/-/plugin-back-to-top-1.5.2.tgz#d253be7f0b7c2b59ca8fabe10c2f517c96d83b0e"
+  integrity sha512-eLieTccUQ8XdIqQXWyp0bftfud9js1idHFFyxuhHWSYAco/vTp7wLz7JdFqr8GnFye9y88B1y34iLnbZLiBlmA==
+  dependencies:
+    lodash.debounce "^4.0.8"
+
 "@vuepress/plugin-last-updated@1.5.2":
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-last-updated/-/plugin-last-updated-1.5.2.tgz#daa2250edb40700e1fa0942561057b6aa00e4103"
@@ -4758,6 +4765,11 @@ media-typer@0.3.0:
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
 
+medium-zoom@^1.0.4:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/medium-zoom/-/medium-zoom-1.0.5.tgz#81413dda20ccdd857141ff420cfab788dd32e20e"
+  integrity sha512-aLGa6WlTuFKWvH88bqTrY5ztJMN+D0hd8UX6BYc4YSoPayppzETjZUcdVcksgaoQEMg4cZSmXPg846fTp2rjRQ==
+
 memory-fs@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/memory-fs/-/memory-fs-0.4.1.tgz#3a9a20b8462523e447cfbc7e8bb80ed667bfc552"
@@ -7432,12 +7444,31 @@ vuepress-html-webpack-plugin@^3.2.0:
     toposort "^1.0.0"
     util.promisify "1.0.0"
 
+vuepress-plugin-code-copy@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-code-copy/-/vuepress-plugin-code-copy-1.0.6.tgz#6431dab764b48b5b203e4936d98b1943651ce4ad"
+  integrity sha512-FiqwMtlb4rEsOI56O6sSkekcd3SlESxbkR2IaTIQxsMOMoalKfW5R9WlR1Pjm10v6jmU661Ex8MR11k9IzrNUg==
+
 vuepress-plugin-container@^2.0.2:
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/vuepress-plugin-container/-/vuepress-plugin-container-2.1.4.tgz#bd586587ffb303f847e4a6a2e2568171f311493b"
   integrity sha512-l+EkeL+rC6DJch1wAZUFIkNDaz2TNOg4NQTHa3yMAsYkC+QaSRubGdN6YwOSmfjxVmM9s9D3gwBWw0O7OBhqRg==
   dependencies:
     markdown-it-container "^2.0.0"
+
+vuepress-plugin-medium-zoom@^1.1.8:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-medium-zoom/-/vuepress-plugin-medium-zoom-1.1.8.tgz#bb1ea5cdd50efd218b385b5f5fe46c3e1d2d4ec1"
+  integrity sha512-G6s/kDw7obUqaTNhg94+wbuMYPLmPRS4jZ8voJPO/SHyKq/myzDdTL9OzYq3EMVz/P1pROYhN+jNCT7KpdaAZg==
+  dependencies:
+    medium-zoom "^1.0.4"
+
+vuepress-plugin-nprogress@^1.1.7:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-nprogress/-/vuepress-plugin-nprogress-1.1.7.tgz#53c5d7606e121c9c29f93b76e58bd6b3f6ac2a28"
+  integrity sha512-QbmCf50r5klCV8AxrN0NTXwORu0UlL+1bRZurPBfut98BvcgjyWqHM29UH1QggtxJFKkM1N4TFAfXQQg4qAQbg==
+  dependencies:
+    nprogress "^0.2.0"
 
 vuepress-plugin-smooth-scroll@^0.0.3:
   version "0.0.3"

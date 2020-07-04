@@ -114,5 +114,9 @@ module.exports = {
 
       
     
-  }
+  },
+  plugins: [
+    '@vuepress/back-to-top',
+    ['vuepress-plugin-code-copy', true]
+  ]
 }
