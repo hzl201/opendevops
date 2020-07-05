@@ -10,6 +10,12 @@ module.exports = {
       { text: 'Home', link: '/' },
       { text: '招募', link: '/zh/ad/' },
       {
+        text: '开发文档',
+        items: [
+          { text: '数据字典', link: '/zh/guide/Developer/DataDictionary/' }
+        ]
+      },
+      {
         text: '部署文档',
         items: [
           { text: '快速部署', link: '/zh/guide/install/local/' },
@@ -72,14 +78,29 @@ module.exports = {
           title: '矿端平台使用',
           collapsable: false,
           children: [
-            '/zh/guide/used/kjWeb_docs/kjWeb_menu/'
+            '/zh/guide/used/kjWeb_docs/kjWeb_menu/',
+            '/zh/guide/used/kjWeb_docs/kjWeb_Emergency/'
           ]
         },
         {
-          title: '监测数据检查',
+          title: '监测监控',
           collapsable: false,
           children: [
             '/zh/guide/used/MonitorData/'
+          ]
+        },
+        {
+          title: '开发文档',
+          collapsable: false,
+          children: [
+            '/zh/guide/Developer/DataDictionary/'
+          ]
+        },
+        {
+          title: '如何运维',
+          collapsable: false,
+          children: [
+            '/zh/guide/DevOps/DB_Backup/'
           ]
         },
         {

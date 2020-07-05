@@ -12,5 +12,5 @@ features:
   details: 用户权限基于严格的角色管理访问控制，用户登陆鉴权
 - title: 任务
   details: 强大的作业调度系统以业务为主线，确保工作流程、信息系统、数据有机结合
-footer: MIT Licensed | Copyright © 2020-present beijing Longruan Groups
+footer: MIT Licensed | Copyright © 2020-present Beijing Longruan Groups
 ---

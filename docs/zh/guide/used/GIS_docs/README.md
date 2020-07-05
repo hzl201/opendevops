@@ -35,7 +35,12 @@
 ## GIS协同及地图服务管理手册
 
 > 讲解地图服务和协同服务的管理方法，一张图制图平台协同及地图服务管理、图种分类标准。
-- 一张图制图平台协同及地图服务管理手册：[下载地址](https://pan.baidu.com/s/1Ij6VmHlS0zjwj0sIwi2AOQ) 链接: https://pan.baidu.com/s/1Ij6VmHlS0zjwj0sIwi2AOQ 提取码: qvvx
+- 一张图制图平台协同及地图服务管理手册：[下载地址](https://pan.baidu.com/s/1kJgrrpY_8uFlaSUweIM-wQ) 链接: https://pan.baidu.com/s/1kJgrrpY_8uFlaSUweIM-wQ 提取码: 5pq5 
+
+---
+
+> 讲解如何进行图纸修改。
+- 一张图制图图纸修改手册：[下载地址](https://pan.baidu.com/s/1Ij6VmHlS0zjwj0sIwi2AOQ) 链接: https://pan.baidu.com/s/1Ij6VmHlS0zjwj0sIwi2AOQ 提取码: qvvx
 
 - 注意：先把admin用户下的所有图层类别和图层都创建并添加好，再创建其他用户（建议都为英文），创建时该用户会继承admin的当前分类和图层名，但不会自动与admin实时同步。而且创建用户后可以在用户名称上右键添加该用户的中文姓名，方便区分。
 
