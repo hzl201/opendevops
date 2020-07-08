@@ -25,6 +25,7 @@ module.exports = {
         ]
       },
       { text: '使用文档', link: '/zh/guide/used/GIS_docs/' },
+      { text: '运维文档', link: '/zh/guide/DevOps/DB_Backup/' },
       //{ text: '论坛', link: 'https://bbs.opendevops.cn/',target:'_blank' },
       { text: '官网', link: 'http://www.longruan.com/',target:'_blank' },
       { text: 'Demo', link: 'http://172.16.0.165/', target: '_blank'},

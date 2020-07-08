@@ -24,15 +24,32 @@
 
 **重庆煤科院接口配置**
 - 厂家最新的转发接口程序已经修改为注册制，需联系厂家进行软件注册后才能使用。注册时需提供煤矿名称和序列号，联系厂家获取授权码并录入。
+- ![](/2k1pZDTfEGQRSgF.jpg)
+- 【点击】启用生成文件功能，在【任务列表】中输入“瓦斯上传”点击【添加任务】按钮，点击方框中的“瓦斯上传”，选择“文件协议”。
+- 依次填写如下信息：（此信息要求矿端或成家提供）
+- 矿井编码（按照编码规则，填写煤矿编码）
+- 矿端安全监测监控主数据库IP地址，备数据库IP地址
+- 数据库名称：
+- 用户名：
+- 密码：
+- 点击【测试】按钮，提示主数据库链接正常（备用数据库无需要求，正常与否都可），表示信息配置成功。
+- 点击文件路径【浏览】按钮，选择D:\datalr目录，点击【确定】按钮。
+- ![](/Bfcizpe31uNHTDQ.jpg)
+- ![](/UCKZvPuaiY5XoTQ.jpg)
 - 若安全监测厂家接口程序部署在龙软的监测监控服务器上，则把输出路径修改为本机ftp目录即可，如D:\ftp\anquanjiance\370800053700007。若安全监测厂家接口程序部署在厂家服务器上，还需要进行FTP配置。可选择使用厂家接口程序进行ftp上传，也可以使用龙软的ftp程序进行上传。厂家的接口程序中切换到ftp传输页面，新建一个任务，并录入属性信息，目标路径为anquanjiance/370800053700007的字样。安全监测上传周期为10秒，人员定位120秒。
+- ![](https://i.loli.net/2020/07/08/ibp7sanQLJtVZUG.jpg)
 - 修改配置后需保存并重启厂家接口程序才能生效。在桌面右下角找到厂家的接口程序，右键，关闭，然后重新运行即可。
 
 **江苏三恒安全监测接口配置**
 - 运行KJ70N-FTP.exe程序。
+- ![](/J8V5G3MjqKDb7mx.jpg)
 - 进行上传参数配置。
+- ![](/DJ6QfEARC5uPXjF.jpg)
+
 
 **江苏三恒人员定位接口配置**
 - 运行KJ128A联网数据生成程序.exe。
+- ![](/9iaqKVESXP3Chpd.jpg)
 - 点击【煤矿编码录入】按钮，点击“修改编码”输入对应的煤矿编码（按照云南曲靖编码规则，填写15位煤矿编码），点击【立即生成】再点击【确定】，点击【退出】按钮即完成煤矿编码录入。
 - 【矿井参数文件录入】【区域参数文件录入】【分站/轨迹点参数文件录入】【人员参数文件录入】与煤矿编码录入步骤一致点击【立即生成】按钮时，如有提示信息不全，联系矿端及厂家完善此类信息。
 
@@ -45,14 +62,112 @@
 
 **龙软安全监测接口程序**
 
+- 安全监测接口程序主要作用是将ftp目录中已上传的安全监测转换txt文件内容进行解析入库，主要涉及到的数据库是矿端安全监测节点库和矿端三维数据库。
+- 在接口程序的安全监测接口程序目录中运行SafetyMonitor.exe和SafetyMonitor_Center.exe程序。配置文件扩展名都是config，使用记事本打开。
+- （1）修改monitor.xml配置文件。输入煤矿编码和简称。
+- `<mine key="370800053700004" name="里彦煤矿"  />`
+- （2）修改SafetyMonitor.exe.config配置文件，录入节点库信息。
+
+```
+<add key="sqldatabase" value="LKJT_SafeyMonitor_Node_LY"/>
+    <add key="sqluid" value="sa"/>
+    <add key="sqlpwd" value="sa"/>
+    
+        <!--读取文件的地址-->
+    <add key="fileEntries" value="D:\ftp\anquanjiance\370800053700004\"/>
+    <!--历史文件的地址 -->
+    <add key="LogfileEntries" value="D:\ftp\anquanjiance\Log\"/>
+    <!--读取文件的文件夹-->
+    <add key="wenjianjiaName" value="370800053700004"/>
+    
+        <!--读取文件的地址-->
+    <add key="fileEntries" value="D:\ftp\anquanjiance\370800053700004\"/>
+    <!--历史文件的地址 -->
+    <add key="LogfileEntries" value="D:\ftp\anquanjiance\Log\"/>
+    <!--读取文件的文件夹-->
+    <add key="wenjianjiaName" value="370800053700004"/>
+    
+    		<!--程序窗体显示名称-->
+		<add key="FormName" value="里彦安全监测数据监控"/>
+```
+- （3）修改SafetyMonitor_Center.exe.config配置文件，录入中心库信息。
+   
+```
+<!-- 三维数据库-->
+    <add key="sqlSanweiserver" value="."/>
+    <add key="sqlSanweidatabase" value="3d_LY"/>
+    <add key="sqlSanweiuid" value="sa"/>
+    <add key="sqlSanweipwd" value="longruan123"/>
+    
+  <add key="FormName" value="临矿统计安全监测数据转发程序" />
+  <add key="sqlNoteserver" value="." />
+  <add key="sqlNotedatabase" value="LKJT_SafeyMonitor_Node_LY" />
+  <add key="sqlNoteuid" value="sa" />
+  <add key="sqlNotepwd" value="sa" />
+  <add key="sqlCenterserver" value="172.16.0.166" />
+  <add key="sqlCenterdatabase" value="LKJT_MonitorCenter" />
+  <add key="sqlCenteruid" value="sa" />
+  <add key="sqlCenterpwd" value="sa" />
+```
+
 **龙软人员定位接口程序**
 
+- 人员定位接口程序主要作用是将ftp目录中已上传的人员定位转换txt文件内容进行解析入库，主要涉及到的数据库是矿端人员定位节点库和矿端三维数据库。
+- 在接口程序的人员定位接口程序目录中运行PersonLocation.exe和PersonLocation_Center.exe程序。配置文件扩展名都是config，使用记事本打开。
+- （1）修改Person.xml配置文件。输入煤矿编码和简称。
+- `<mine key="370800053700004" name="里彦煤矿"  />`
+- （2）修改PersonLocation.exe.config配置文件，录入节点库信息。在这里需要注意人员定位读取的文件夹位置，`<add key="fileEntries" value="D:\ftp\renyuandingwei\" />`这个配置是读取D:\ftp\renyuandingwei\目录下的矿编码文件夹。
+ 
+```
+<add key="sqlserver" value="." />
+    <add key="sqldatabase" value="LKJT_PersonLocation_Note_LY" />
+    <add key="sqluid" value="sa" />
+    <add key="sqlpwd" value="longruan123" />
+    
+<add key="wenjianjiaName" value="370800053700004" />
+
+    <add key="FormName" value="临矿里彦煤矿人员定位数据监控" />
+    
+    <add key="fileEntries" value="D:\ftp\renyuandingwei\" />
+    <add key="LogfileEntries" value="D:\ftp\renyuandingwei\Log\" />
+```
+        
+- （3）修改PersonLocation_Center.exe.config配置文件，录入中心库信息。
+
+```  
+<add key="sqlNoteserver" value="." />
+  <add key="sqlNotedatabase" value="LKJT_PersonLocation_Note_LY" />
+  <add key="sqlNoteuid" value="sa" />
+  <add key="sqlNotepwd" value="sa" />
+  <add key="sqlSWserver" value="." />
+  <add key="sqlSWdatabase" value="3d_LY" />
+  <add key="sqlSWuid" value="sa" />
+  <add key="sqlSWpwd" value="sa" />
+  
+    <add key="MineName" value="里彦煤矿" />
+  <add key="FormName" value="临矿统计人员定位数据转发程序" />
+  <add key="sqlCenterserver" value="172.16.0.166" />
+  <add key="sqlCenterdatabase" value="LKJT_PersonLocationCenter" />
+  <add key="sqlCenteruid" value="sa" />
+  <add key="sqlCenterpwd" value="sa" />
+```
+
 **龙软水文监测接口程序**
+
+- 水文接口程序主要作用是将ftp目录中已上传的水文转换txt文件内容进行解析入库，主要涉及到的数据库是矿端水文节点库。
+- 在接口程序的人员定位接口程序目录中运行HydrologicalMonitor.exe程序。配置文件扩展名是config，使用记事本打开。
 
 **龙软应力接口程序**
 - 应力分三种接口程序，两种是读数据库的，一种是读转换文件的。
 
+- 读数据库的应力接口程序主要作用是直接读取矿端应力数据库的内容，进行解析入库，主要涉及到的数据库是矿端应力和微震节点库。
+- 在接口程序的人员定位接口程序目录中运行ImpactPressure.exe，配置文件ImpactPressure.exe.config。
+
 **龙软微震接口程序**
+
+- 微震接口程序主要作用是将ftp目录中已上传的微震转换txt文件内容进行解析入库，主要涉及到的数据库是矿端应力和微震节点库。
+- 在接口程序的人员定位接口程序目录中运行ImpactPressure.exe。其中配置在微震接口程序配置文件ImpactPressure.exe.config和微震三维测点程序配置文件Microseismic.exe.config，使用记事本打开。
+
 
 ### 数据库配置
 
@@ -142,6 +257,12 @@
 - （5）水文监测数据展示不准确。
 - 异常排查指导：对照矿井水文监测系统及厂家生成的配置文件进行检查，针对不准确的传感器进行定向查询，例如，地面水文长观孔传感器和井下普通传感器，排查传感器类型是否准确；监测矿井水文监测系统厂家生成的实时文件，针对传感器的展示数据进行定向查询，例如，传感器的监测值和单位是否准确；
 - 在进行以上排查操作时，可参考水文监测系统的通信协议标准（详情见附件）。链接: https://pan.baidu.com/s/1btdkryUJSTUuiyCyIQfSEw 提取码: 2uix
+
+- 案例分析
+- 某矿井展示的水文数据有部分传感器无基础数据，而且有些基础数据内容错误，和孔号无法对应。需要对照水文厂家的平台、矿井平台、转换数据，查找问题。
+- （1）dev的问题。数据体分为：地面水文长观孔、井下普通传感器。逐一核对传感器编号是否对应，展示的测点名称、监测量、单位是否与厂家平台一致，将不一致的地方标记。有时候是传感器缺失，或者多上传的，需要向矿井地测科科室收集哪些传感器需要展示，将不需要展示的去除；再逐一检查剩余传感器编号是否有缺失，补充。最后补充和调整基础信息。
+- （2）rtdata的问题。实时数据是否有漏传、多上传的情况。将rtdata与dev对比，检查有哪些是没传输实时数据的，需要让厂家修改转换接口程序，补充实时数据，并去除不需要展示的数据。
+- （3）如何展示含水层层位、孔口标高的信息。需要在平台的水文预警设置里把钻孔的预警信息完善。预警值需要矿端自行决定，若持续报警，则可能是报警值设置有问题。
 
 ## 视频监控实施指导
 

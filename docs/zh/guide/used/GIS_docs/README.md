@@ -36,6 +36,7 @@
 
 > 讲解地图服务和协同服务的管理方法，一张图制图平台协同及地图服务管理、图种分类标准。
 - 一张图制图平台协同及地图服务管理手册：[下载地址](https://pan.baidu.com/s/1kJgrrpY_8uFlaSUweIM-wQ) 链接: https://pan.baidu.com/s/1kJgrrpY_8uFlaSUweIM-wQ 提取码: 5pq5 
+- 一张图gis协同使用操作视频：链接：https://pan.baidu.com/s/1xeCSUObmd1R-bGHOKyLnnw 提取码：7wg4
 
 ---
 
