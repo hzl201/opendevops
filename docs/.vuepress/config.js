@@ -21,6 +21,7 @@ module.exports = {
           { text: '快速部署', link: '/zh/guide/install/local/' },
           { text: '分布式部署', link: '/zh/guide/install/distribute/' },
           { text: '服务配置', link: '/zh/guide/install/config/' },
+          { text: '监测监控', link: '/zh/guide/install/MonitorData/' },
           { text: '服务迁移', link: '/zh/guide/install/transmission/' }
         ]
       },
@@ -58,6 +59,7 @@ module.exports = {
             '/zh/guide/install/local/',
             '/zh/guide/install/distribute/',
             '/zh/guide/install/config/',
+            '/zh/guide/install/MonitorData/',
             '/zh/guide/install/transmission/'
           ]
         },
@@ -81,13 +83,6 @@ module.exports = {
           children: [
             '/zh/guide/used/kjWeb_docs/kjWeb_menu/',
             '/zh/guide/used/kjWeb_docs/kjWeb_Emergency/'
-          ]
-        },
-        {
-          title: '监测监控',
-          collapsable: false,
-          children: [
-            '/zh/guide/used/MonitorData/'
           ]
         },
         {

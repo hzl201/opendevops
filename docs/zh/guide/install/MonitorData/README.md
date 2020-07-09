@@ -155,19 +155,72 @@
 **龙软水文监测接口程序**
 
 - 水文接口程序主要作用是将ftp目录中已上传的水文转换txt文件内容进行解析入库，主要涉及到的数据库是矿端水文节点库。
-- 在接口程序的人员定位接口程序目录中运行HydrologicalMonitor.exe程序。配置文件扩展名是config，使用记事本打开。
+- 在接口程序的目录中运行HydrologicalMonitor.exe程序。配置文件扩展名是config，使用记事本打开。
 
+```
+<add key="sqlserver" value="."/>
+<add key="sqldatabase" value="LKJT_HydrologicalMonitor_xshyh"/>
+<add key="sqluid" value="sa"/>
+<add key="sqlpwd" value="sa"/>
+
+<add key="sqlserverCenter" value="172.16.0.166"/>
+<add key="sqldatabaseCenter" value="LKJT_MonitorCenter"/>
+<add key="sqluidCenter" value="sa"/>
+<add key="sqlpwdCenter" value="sa"/>
+
+<!--读取文件的地址-->
+<add key="fileEntries" value="D:\FTP\shuiwenjiance\370800053700009\"/>
+<!--历史文件的地址 -->
+<add key="LogfileEntries" value="D:\FTP\shuiwenjiance\Log\"/>
+<!--煤矿编码-->
+<add key="MineID" value="370800053700009"/>
+<!--程序窗体显示名称-->
+<add key="FormName" value="新上海一号煤矿水文监测"/>
+```
 **龙软应力接口程序**
 - 应力分三种接口程序，两种是读数据库的，一种是读转换文件的。
 
 - 读数据库的应力接口程序主要作用是直接读取矿端应力数据库的内容，进行解析入库，主要涉及到的数据库是矿端应力和微震节点库。
-- 在接口程序的人员定位接口程序目录中运行ImpactPressure.exe，配置文件ImpactPressure.exe.config。
+- 在接口程序的目录中运行ImpactPressure.exe，配置文件ImpactPressure.exe.config。
 
 **龙软微震接口程序**
 
 - 微震接口程序主要作用是将ftp目录中已上传的微震转换txt文件内容进行解析入库，主要涉及到的数据库是矿端应力和微震节点库。
-- 在接口程序的人员定位接口程序目录中运行ImpactPressure.exe。其中配置在微震接口程序配置文件ImpactPressure.exe.config和微震三维测点程序配置文件Microseismic.exe.config，使用记事本打开。
+- 在接口程序的目录中运行ImpactPressure.exe。其中配置在微震接口程序配置文件ImpactPressure.exe.config和微震三维测点程序配置文件Microseismic.exe.config，使用记事本打开。  
+```
+<!--数据库信息-->
+<add key="LRsqlserver" value="10.154.129.12"/>
+<add key="LRsqldatabase" value="LKJT_MinePressure_PZ"/>
+<add key="LRsqluid" value="sa"/>
+<add key="LRsqlpwd" value="sa"/>
 
+<!--读取文件的地址-->
+<add key="fileEntries" value="D:\ftp\weizhen\370800053700006"/>
+<!--历史文件的地址 -->
+<add key="LogfileEntries" value="D:\ftp\weizhen\Log\"/>
+    
+<!--煤矿编码-->
+<add key="MineID" value="370800053700006"/>
+<!--煤矿名称-->
+<add key="MineName" value="彭庄煤矿"/>
+```
+
+**龙软三级预警接口程序**
+
+- 在接口程序的人员定位接口程序目录中运行PersonSWMonitor.exe。配置文件PersonSWMonitor.exe.config,使用记事本打开。
+
+```
+<!--安全监测监测数据库-->
+		<add name="SafetyConnectionString" connectionString="server=10.154.129.12;database=LKJT_SafeyMonitor_Node_PZ;uid=sa;pwd=sa" providerName="System.Data.SqlClient" />
+		<!--束管监测数据库-->
+		<add name="SgConnectionString" connectionString="server=172.16.0.166;database=LKJT_Base_1.4.8;uid=sa;pwd=sa" providerName="System.Data.SqlClient" />
+		<!--人员定位数据库-->
+		<add name="PersonConnectionString" connectionString="server=10.154.129.12;database=LKJT_PersonLocation_Note_PZ;uid=sa;pwd=sa" providerName="System.Data.SqlClient" />
+		<!--矿压监测数据库-->
+		<add name="PressureConnectionString" connectionString="server=.;database=SecurityKY;uid=sa;pwd=sa" providerName="System.Data.SqlClient" />
+		<!--监测预警数据库-->
+		<add name="WarnDataConnectionString" connectionString="server=172.16.0.166;database=EarlyWarn;uid=sa;pwd=sa" providerName="System.Data.SqlClient" />
+```
 
 ### 数据库配置
 
@@ -189,23 +242,112 @@
 
 **安全监测节点库修改**
 
+- 在节点库中的[dbo].[SM_MineTime]表里直接添加信息。右键编辑该表。
+- 示例：
+- 
+| MineID | MineName | DemoName | SysDeptID | MineTime | ServerTime | Reason | IsDel |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 370800053700006 | 彭庄煤矿 | NULL | 700bce3696ec437ca93bf7458ea1a95d | 2020-07-09 14:41:26.000 | 2020-07-09 14:41:33.000 | 正常 | N |
+- 其中MineID是煤矿编码，SysDeptID是在中心库LKJT_Base_1.4.8数据库[dbo].[T_SYS_ORGANIZATION]表里查到的SysDeptID。查询方法是：`where Name like  '%顺兴%'   ##顺兴要改为你要添加的矿井`
+
 **安全监测中心库修改**
+
+- MonitorCenter中心库需修改多个表。配置以后在平台监测监控实时数据页面就可以显示为“已接入”。
+- [dbo].[AutomationDataBase]表
+- 										
+| DeptID | MineID | MineName | NodeName | MonitorType | ConnectionString | Remark |
+| --- | --- | --- | --- | --- | --- | --- |
+| 6ea325338c644926b708407fa7d5d983 | 370800053700001 | 鲁西煤矿 | 鲁西3D | 综合自动化 | server=10.155.0.83;database=3d;uid=sa;pwd=longruan123 | NULL |
+- [dbo].[DataBaseConfig]表
+- 		
+| NodeName | MonitorType | ConnectionString | Remark |
+| --- | --- | --- | --- |
+| 鲁西安全监测节点库 | 安全监测 | server=10.155.0.83;database=LKJT_SafeyMonitor_Node;uid=sa;pwd=sa | NULL |
+- [dbo].[MineConfig]表 databaseid对应[DataBaseConfig]表里的第一个id。
+- 			
+| DatabaseID | SysDeptID | MineName | MineID | MonitorType | IsAccess |
+| --- | --- | --- | --- | --- | --- |
+| 1 | 6ea325338c644926b708407fa7d5d983 | 鲁西煤矿 | 370800053700001 | 安全监测 | Y |
+- [dbo].[MineRealTimeTransforStatus]表
+- 										
+| MineID | MonitorType | IsAccessed | MineIP | MineRemark | ConnectFlag | LastConnectClientTime | LastConnectServerTime |WriteFlag | LastWriteClientTime | LastWriteServerTime | ReasonRemark | WorkerNum | LeaderNum | TOTALTIMES | LASTSTATICESTIME |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 370800053700001 | 安全监测 | Y | 10.155.0.83 | NULL | Y | 2017-10-20 09:13:52.240 | 2017-10-20 09:13:52.240 | Y | 2020-07-09 15:11:12.000 | 2020-07-09 15:11:26.000 | NULL | NULL | NULL | 0 |	2017-10-20 09:13:52.240 |								
 
 **人员定位节点库修改**
 
+- [dbo].[PL_MineList]表
+- 					
+| MineID | MineName | IsDel | DemoName |
+| --- | --- | --- | --- |
+| 370800053700006 | 彭庄煤矿 | N | NULL |
+- [dbo].[PL_MineTime]表
+- 	
+| MineID | MineTime | ServerTime | Reason |
+| --- | --- | --- | --- |
+| 370800053700006 | 2020-07-09 14:52:06.000 | 2020-07-09 14:50:59.000 | 正常 |
+
 **人员定位中心库修改**
+
+- PersonLocationCenter是人员定位中心库。
+- [dbo].[PL_SetDatabase]表
+- 								
+| ID | NoteName | IP | DatabaseSource | DatabaseName | DatabaseUid | DatabasePwd | Remark |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1005 | 彭庄节点库 | 10.154.129.12 | 10.154.129.12 | LKJT_PersonLocation_Note_PZ | sa | sa | NULL |
+
+- [dbo].[PL_SetMine]表
+
+| DatabaseID	| SysDeptID |	MineID	| MineName |	DemoName |
+| --- | --- | --- | --- | --- |
+| 1005 | 	700bce3696ec437ca93bf7458ea1a95d	| 370800053700006	 | 彭庄煤矿|	示范一矿 |
+- [dbo].[PL_TranforStatus]表
+
+| MineID |	TransforStatus | LastTime |BreakReason | Remark | 	CollectorIP | CollectorReserveIP | FirstTime |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 370800053700006 | 	Y	| 2020-07-09 15:27:08.000 | 正常 |NULL	| 172.16.0.166 | 10.154.129.12 | 2018-06-10 10:13:12.240 |
+
 
 **水文监测节点库修改**
 
+- [dbo].[SW_MineTime]表
+- 		
+| MineID | <span class="Apple-tab-span" style="white-space:pre"></span>MineName | SysDeptID | MineTime | ServerTime | Reason | IsDel |
+| --- | --- | --- | --- | --- | --- | --- |
+| 370800053700006 | 彭庄煤矿 | 700bce3696ec437ca93bf7458ea1a95d | 2018-04-02 09:12:38.000 | 2018-04-02 09:12:45.000 | 正常 | N |
+
 **水文监测中心库修改**
+
+- MonitorCenter中心库需修改多个表。
+- [dbo].[HydrologicalDataBase]表
+-
+| DeptID |	MineID	| MineName | NodeName | MonitorType | ConnectionString	| Remark |
+| --- | --- | --- | --- | --- | --- | --- |
+| 6ea325338c644926b708407fa7d5d983 | 370800053700001 | 鲁西煤矿 |	鲁西水文监测 | 水文监测 | server=10.155.0.83;database=LKJT_HydrologicalMonitor;uid=sa;pwd=sa |	NULL |
+
+- [dbo].[HydrologicalTransforStatus]表
+
+| MineID |	MonitorType | IsAccessed | 	MineIP	| MineRemark |	ConnectFlag | LastConnectClientTime | 	LastConnectServerTime | WriteFlag | LastWriteClientTime | LastWriteServerTime	| ReasonRemark | 	WorkerNum |	LeaderNum	| TOTALTIMES | LASTSTATICESTIME |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 370800053700001	| 水文监测 | Y | 10.155.0.83 | NULL | Y |2017-10-20 09:13:52.240 | 2017-10-20 09:13:52.240 | Y | 2020-07-09 15:30:30.000 | 2020-07-09 15:30:30.000 | NULL | NULL	| NULL	| 0	| 2017-10-20 09:13:52.240 |
 
 **应力和微震节点库修改**
 
+
+
+- [dbo].[MineTime]表
+- 
+| MineID | <span class="Apple-tab-span" style="white-space:pre"></span>MineName | SysDeptID | MineTime | ServerTime | Reason | IsDel |
+| --- | --- | --- | --- | --- | --- | --- |
+| 370800053700006 | 彭庄煤矿 | 700bce3696ec437ca93bf7458ea1a95d | 2018-04-02 09:12:38.000 | 2018-04-02 09:12:45.000 | 正常 | N |
+
 **应力和微震中心库修改**
 
-**三维节点库修改**
+- MonitorCenter中心库的[dbo].[ImpactPressureDataBase]表
 
-
+| DeptID	| MineID |	MineName | NodeName | MonitorType | ConnectionString |	Remark |
+| --- | --- | --- | --- | --- | --- | --- |
+|106af5d767a74b97aaed4697a4d483d0 | 370800053700002 | 王楼煤矿	| 王楼应力监测 |	应力监测	 |server=10.151.129.22;database=LKJT_MinePressure_WL;uid=sa;pwd=sa |	NULL |
 
 
 ## 安全监测实施指导
