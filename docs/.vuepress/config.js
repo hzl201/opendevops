@@ -26,7 +26,13 @@ module.exports = {
         ]
       },
       { text: '使用文档', link: '/zh/guide/used/GIS_docs/' },
-      { text: '运维文档', link: '/zh/guide/DevOps/DB_Backup/' },
+      {
+        text: '运维文档',
+        items: [
+          { text: '权限配置', link: '/zh/guide/DevOps/permission/'},
+          { text: '数据备份', link: '/zh/guide/DevOps/DB_Backup/'},
+        ]
+      },
       //{ text: '论坛', link: 'https://bbs.opendevops.cn/',target:'_blank' },
       { text: '官网', link: 'http://www.longruan.com/',target:'_blank' },
       { text: 'Demo', link: 'http://172.16.0.165/', target: '_blank'},
@@ -38,7 +44,6 @@ module.exports = {
           { text: 'FAQ', link: '/zh/guide/more/faq/' },
           { text: 'QQ群及微信群', link: '/zh/guide/more/qgroup/'},
           { text: '贡献者', link: '/zh/guide/more/contributor/'},
-          { text: '权限文档', link: '/zh/guide/more/permission/'},
           { text: '最佳示例', link: '/zh/guide/more/example/'},
           { text: '插件相关', link: '/zh/guide/more/plugin/'},
           { text: '如何更新', link: '/zh/guide/more/update/'},
@@ -96,7 +101,9 @@ module.exports = {
           title: '如何运维',
           collapsable: false,
           children: [
+            '/zh/guide/DevOps/permission/',
             '/zh/guide/DevOps/DB_Backup/'
+            
           ]
         },
         {
@@ -106,7 +113,6 @@ module.exports = {
             '/zh/guide/more/faq/',
             '/zh/guide/more/qgroup/',
             '/zh/guide/more/contributor/',
-            '/zh/guide/more/permission/',
             '/zh/guide/more/example/',
             '/zh/guide/more/plugin/',
             '/zh/guide/more/update/'
