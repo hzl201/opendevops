@@ -12,7 +12,10 @@ module.exports = {
       {
         text: '开发文档',
         items: [
-          { text: '数据字典', link: '/zh/guide/Developer/DataDictionary/' }
+          { text: '注册', link: '/zh/guide/Developer/Register/' },
+          { text: 'web配置', link: '/zh/guide/Developer/webconfig/' },
+          { text: '数据字典', link: '/zh/guide/Developer/DataDictionary/' },
+          { text: 'systemhelp', link: '/zh/guide/Developer/systemhelp/' },
         ]
       },
       {
@@ -33,9 +36,10 @@ module.exports = {
           { text: '数据备份', link: '/zh/guide/DevOps/DB_Backup/'},
         ]
       },
+      { text: '操作视频', link: '/zh/guide/used/video/' },
       //{ text: '论坛', link: 'https://bbs.opendevops.cn/',target:'_blank' },
       { text: '官网', link: 'http://www.longruan.com/',target:'_blank' },
-      { text: 'Demo', link: 'http://172.16.0.165/', target: '_blank'},
+      //{ text: 'Demo', link: 'http://172.16.0.165/', target: '_blank'},
       //{ text: 'Gitee', link: 'https://gitee.com/opendevops/opendevops', target: '_blank'},
       { text: 'Github', link: 'https://github.com/hzl201/opendevops',target:'_blank' },
       {
@@ -56,6 +60,16 @@ module.exports = {
           title: '它是什么',
           collapsable: false,
           children: [''],
+        },
+        {
+          title: '开发文档',
+          collapsable: false,
+          children: [
+            '/zh/guide/Developer/Register/',
+            '/zh/guide/Developer/webconfig/',
+            '/zh/guide/Developer/DataDictionary/',
+            '/zh/guide/Developer/systemhelp/'
+          ]
         },
         {
           title: '如何安装',
@@ -91,10 +105,10 @@ module.exports = {
           ]
         },
         {
-          title: '开发文档',
+          title: '操作视频',
           collapsable: false,
           children: [
-            '/zh/guide/Developer/DataDictionary/'
+            '/zh/guide/used/video/'
           ]
         },
         {
@@ -103,7 +117,6 @@ module.exports = {
           children: [
             '/zh/guide/DevOps/permission/',
             '/zh/guide/DevOps/DB_Backup/'
-            
           ]
         },
         {

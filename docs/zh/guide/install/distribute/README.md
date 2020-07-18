@@ -229,6 +229,7 @@ C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
 
 > 用于搭建web平台。
 `建议开发人员直接进行操作，创建web网站后默认使用80端口，第一次打开需web需要注册web平台。`
+web目录建议使用英文文件夹，比如放置在D盘根目录，文件夹名称为XyWeb（其中Xy是矿井的缩写）。
 
 **安装服务器监测程序**
 > 用于监测服务器cpu、内存、磁盘的使用情况。
