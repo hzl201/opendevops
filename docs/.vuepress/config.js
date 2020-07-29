@@ -12,12 +12,15 @@ module.exports = {
       {
         text: '开发文档',
         items: [
+          { text: '开发环境搭建', link: '/zh/guide/Developer/development-environment/' },
           { text: '注册', link: '/zh/guide/Developer/Register/' },
           { text: 'web配置', link: '/zh/guide/Developer/webconfig/' },
           { text: '数据字典', link: '/zh/guide/Developer/DataDictionary/' },
           { text: 'systemhelp', link: '/zh/guide/Developer/systemhelp/' },
+          { text: 'Onemap', link: '/zh/guide/Developer/Onemap/' },
         ]
       },
+      { text: '测试文档', link: 'https://www.yuque.com/testops/kkbr5e/raih5i',target:'_blank' },
       {
         text: '部署文档',
         items: [
@@ -42,7 +45,7 @@ module.exports = {
       { text: '官网', link: 'http://www.longruan.com/',target:'_blank' },
       //{ text: 'Demo', link: 'http://172.16.0.165/', target: '_blank'},
       //{ text: 'Gitee', link: 'https://gitee.com/opendevops/opendevops', target: '_blank'},
-      { text: 'Github', link: 'https://github.com/hzl201/opendevops',target:'_blank' },
+      //{ text: 'Github', link: 'https://github.com/hzl201/opendevops',target:'_blank' },
       {
         text: '了解更多',
         items: [
@@ -66,10 +69,19 @@ module.exports = {
           title: '开发文档',
           collapsable: false,
           children: [
+            '/zh/guide/Developer/development-environment/',
             '/zh/guide/Developer/Register/',
             '/zh/guide/Developer/webconfig/',
             '/zh/guide/Developer/DataDictionary/',
-            '/zh/guide/Developer/systemhelp/'
+            '/zh/guide/Developer/systemhelp/',
+            '/zh/guide/Developer/Onemap/'
+          ]
+        },
+        {
+          title: '测试文档',
+          collapsable: false,
+          children: [
+            'https://www.yuque.com/testops/kkbr5e/raih5i'
           ]
         },
         {

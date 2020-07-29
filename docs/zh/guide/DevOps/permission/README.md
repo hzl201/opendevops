@@ -68,3 +68,17 @@
 
 > 上线前根据实际情况配置每个人的账号权限。
 - 业务模块责任人员排定表示例：[下载地址](https://pan.baidu.com/s/19YRMedn2wTyceAQrZfXpfQ) 链接: https://pan.baidu.com/s/19YRMedn2wTyceAQrZfXpfQ 提取码: eqpc
+
+
+## 移动端权限配置
+
+- 先下载APP，目前只有安卓的APP，暂无ios的APP。登陆PC平台后点击平台右上角的用户名，扫码下载，使用手机扫码。
+- 使用超级管理员或矿端管理员登陆app。或者使用pc端f12开移动调试输入http://221.2.76.14:9092/passport/loginH5 但这种调权限时，没调整一次权限就要清理一次缓存。
+- 点击全部分类，下拉找到平台工具-权限管理。
+- 找到一个角色，左滑，进行权限配置和添加用户的设置。
+- ![](/xeOhlNmjzFDYAyL.jpg)
+- 显示为on的是已经添加过权限了。
+- ![](/9sdGLV7FOg5tjai.jpg)
+- 若需要添加用户，给该角色添加这个人员，使用搜索，输入账号，并将这个人的右侧由off改为on。
+- ![](/V3IUiHGfusAeMYg.jpg)
+
