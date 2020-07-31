@@ -13,11 +13,12 @@ module.exports = {
         text: '开发文档',
         items: [
           { text: '开发环境搭建', link: '/zh/guide/Developer/development-environment/' },
-          { text: '注册', link: '/zh/guide/Developer/Register/' },
+          { text: 'web注册', link: '/zh/guide/Developer/Register/' },
           { text: 'web配置', link: '/zh/guide/Developer/webconfig/' },
-          { text: '数据字典', link: '/zh/guide/Developer/DataDictionary/' },
-          { text: 'systemhelp', link: '/zh/guide/Developer/systemhelp/' },
-          { text: 'Onemap', link: '/zh/guide/Developer/Onemap/' },
+          { text: '数据字典配置', link: '/zh/guide/Developer/DataDictionary/' },
+          { text: 'systemhelp配置', link: '/zh/guide/Developer/systemhelp/' },
+          { text: 'Onemap配置', link: '/zh/guide/Developer/Onemap_config/' },
+          { text: '系统考核配置', link: '/zh/guide/Developer/assessment_config/' },
         ]
       },
       { text: '测试文档', link: 'https://www.yuque.com/testops/kkbr5e/raih5i',target:'_blank' },
@@ -37,7 +38,9 @@ module.exports = {
         text: '运维文档',
         items: [
           { text: '权限配置', link: '/zh/guide/DevOps/permission/'},
-          { text: '数据备份', link: '/zh/guide/DevOps/DB_Backup/'},
+          { text: '系统考核', link: '/zh/guide/DevOps/assessment/'},
+          { text: '数据备份', link: '/zh/guide/DevOps/DB_Backup/'}
+          
         ]
       },
       { text: '操作视频', link: '/zh/guide/used/video/' },
@@ -74,7 +77,8 @@ module.exports = {
             '/zh/guide/Developer/webconfig/',
             '/zh/guide/Developer/DataDictionary/',
             '/zh/guide/Developer/systemhelp/',
-            '/zh/guide/Developer/Onemap/'
+            '/zh/guide/Developer/Onemap_config/',
+            '/zh/guide/Developer/assessment_config/'
           ]
         },
         {
@@ -115,6 +119,7 @@ module.exports = {
           collapsable: false,
           children: [
             '/zh/guide/used/kjWeb_docs/kjWeb_menu/',
+            '/zh/guide/used/kjWeb_docs/kjWeb_BDDM/',
             '/zh/guide/used/kjWeb_docs/kjWeb_Emergency/'
           ]
         },
@@ -130,6 +135,7 @@ module.exports = {
           collapsable: false,
           children: [
             '/zh/guide/DevOps/permission/',
+            '/zh/guide/DevOps/assessment/',
             '/zh/guide/DevOps/DB_Backup/'
           ]
         },

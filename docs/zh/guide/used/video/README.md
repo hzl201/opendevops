@@ -13,6 +13,7 @@
 
 ## 管理平台操作视频
 - 综合调度：链接: https://pan.baidu.com/s/1KYj4EqI96UfeolZ75CszJg 提取码: hyti
+- 综合调度-调度值班自动排班：链接：https://pan.baidu.com/s/1UBKaebFcxliQvA6t1NWutQ 提取码: yg38
 - 生产技术：链接: https://pan.baidu.com/s/1_zQsHDw40Upv2y6xnuHLFw 提取码: gesj
 - 地测防治水：链接: https://pan.baidu.com/s/1jphJTSOt301P5mnGAvV8Hw 提取码: 4t6q
 - 地测防治水新增报表：链接: https://pan.baidu.com/s/1bVA-DCrTTAZYnrkjWwYMLA 提取码: hv62
