@@ -20,6 +20,7 @@
 - 一通三防：链接: https://pan.baidu.com/s/1hp_jQD-h-ANG1s4jkRYNxw 提取码: n9br
 - 机电设备：链接: https://pan.baidu.com/s/1AlmyhPrKjP8U6cSjSFTOLQ 提取码: n5aa
 - 应急救援：链接: https://pan.baidu.com/s/1nZCJBVYg0SZ9FmRdxR36GQ 提取码: vb21
+- 应急救援-应急处置配置（绘制应急避灾路线）：链接：https://pan.baidu.com/s/1ViMIlj2JY-B17ueqCB3brA 提取码：zj5s
 - 安全专业-风险管控：链接: https://pan.baidu.com/s/1ZNqlKjHrNOIvsIBoq3_4PA 提取码: pi9u
 - 安全专业-三违管理：链接: https://pan.baidu.com/s/1C2jAtv_OQrsuQ0uE8JyB4g 提取码: eyg1
 - 安全专业-安全专项管理：链接: https://pan.baidu.com/s/1prsZPUzh7QjnUvyTv-RVKA 提取码: hcv2
@@ -31,3 +32,4 @@
 
 
 ## 监测监控接入视频
+- 临矿监测监控数据接入演示操作视频：链接: https://pan.baidu.com/s/1I6jNinTXSuVvZgzUl8CSwg  密码: pbbi
